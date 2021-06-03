@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mission to Mars</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+  </head>
+
+<body>
+    <div class= "main"> 
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1 class="col-6 col-md-4">MISSION TO MARS</h1>
+          </div>
+          <div class="col">
+            <button class="button" onclick="scrape_all">SCRAPE</button>
+          </div>
+          <div class="col">
+            <img class="nav-rover" src="../images/moon-rover.svg">
+          </div>
+        </div>       
+      </div>
+
+      <div class="directions">
+        <p>Welcome to my page about the Red Planet.  In here you will find the latest news published by NASA on their exploration
+          efforts in Mars.</p>
+      <p>This page is refreshed upon command by clicking the "UPDATE" button above.</p>  
+      </div>  
+
+      <header class="header">
+        <h1>Latest Mars News</h1>
+      </header>
+    
+      <div class="art_container">
+        <h2>{{ mars.title }}</h2>
+        <p> {{ mars.summary }}        
+        </p>
+      </div>
+
+      <div class="feat_container">
+        <div class="img-col">
+         <img src="{{mars.feature_image}}" alt="NASA Mars Photograph">
+        </div>
+      </div>  
+        <div >
+          <div class="row" >
+            <h2> MARS FACTS TABLE</h2>
+            {{mars.facts}}
+          </div> 
+          
+        </div>
+      </div>
+    
+      <!-- Mars Hemisphere Photo Grid -->
+      <div class="row"> 
+        {% for hemisphere in mars.hemispheres %}
+        <div class="column">
+          <h3>{{hemisphere.title}}</h3>
+          <img src="{{hemisphere.img_url}}" style="width: 100%">          
+        </div>
+        
+        {% endfor %} 
+      </div>
+    </div>    
+  </body>
+</html>
